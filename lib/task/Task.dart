@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import '../main.dart';
-
 class Task {
   final int id;
   final String title;

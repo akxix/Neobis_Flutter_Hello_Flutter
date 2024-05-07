@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
-
-import '../main.dart';
 import '../task/Task.dart';
 
 class TodoScreen extends StatefulWidget {
+  const TodoScreen({super.key});
+
   @override
   _TodoScreenState createState() => _TodoScreenState();
 }
 
 class _TodoScreenState extends State<TodoScreen> {
   List<Task> tasks = [
-    Task(id: 1, title: 'Task 1', isCompleted: false),
-    Task(id: 2, title: 'Task 2', isCompleted: true),
+
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo List'),
+        title: const Center(child: Text('TODO LIST')),
+        backgroundColor: Colors.blueAccent,
       ),
+      backgroundColor: Colors.lightBlueAccent,
       body: ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, index) {
           final task = tasks[index];
-          return ListTile(
+          return Container(
+              margin: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(color: Colors.white),
+          ),
+          child: ListTile(
             title: Text(task.title),
             leading: Checkbox(
               value: task.isCompleted,
@@ -42,6 +51,7 @@ class _TodoScreenState extends State<TodoScreen> {
                 });
               },
             ),
+          ),
           );
         },
       ),
